@@ -16,7 +16,7 @@ Available variables are listed below, along with default values (see `defaults/m
     helm_platform: linux
     helm_arch: amd64
 
-Controls for the version of Helm to be installed. See [available Helm releases](https://github.com/helm/helm/releases/).
+Controls for the version of Helm to be installed. See [available Helm releases](https://github.com/helm/helm/releases/). You can upgrade or downgrade versions by changing the `helm_version`.
 
     helm_bin_path: /usr/local/bin/helm
 

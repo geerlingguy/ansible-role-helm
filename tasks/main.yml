@@ -5,7 +5,7 @@
   register: helm_check
 
 - name: Check Helm version.
-  command: helm version
+  command: "{{ helm_bin_path }} version"
   failed_when: false
   changed_when: false
   register: helm_existing_version
