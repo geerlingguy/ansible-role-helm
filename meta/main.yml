@@ -1,0 +1,47 @@
+---
+dependencies: []
+galaxy_info:
+  author: Jeff Geerling
+  role_name: helm
+  description: Helm for Kubernetes.
+  company: Midwestern Mac, LLC
+  license: license (MIT)
+  min_ansible_version: 2.7
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: GenericUNIX
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: opensuse
+      versions:
+        - all
+    - name: GenericBSD
+      versions:
+        - all
+    - name: FreeBSD
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: SLES
+      versions:
+        - all
+    - name: GenericLinux
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+  galaxy_tags:
+    - kubernetes
+    - k8s
+    - cloud
+    - containers
+    - helm
+    - deployment
