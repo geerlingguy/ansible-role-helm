@@ -1,6 +1,6 @@
 # Ansible Role: Helm
 
-[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-helm.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-helm)
+[![CI](https://github.com/geerlingguy/ansible-role-helm/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-helm/actions?query=workflow%3ACI)
 
 This role installs the [Helm](https://helm.sh) binary on any supported host.
 
