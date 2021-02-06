@@ -12,7 +12,7 @@
 
 - name: Download helm.
   unarchive:
-    src: https://get.helm.sh/helm-{{ helm_version }}-{{ helm_platform }}-{{ helm_arch }}.tar.gz
+    src: https://get.helm.sh/helm-v{{ helm_version }}-{{ helm_platform }}-{{ helm_arch }}.tar.gz
     dest: /tmp
     remote_src: true
     mode: 0755
