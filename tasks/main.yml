@@ -10,6 +10,22 @@
   changed_when: false
   register: helm_existing_version
 
+- name: Set Helm version to latest if none ist set
+  set_fact:
+    helm_version: "latest"
+  when: helm_version is not defined
+
+- name: Get current helm releases
+  uri:
+    url: https://api.github.com/repos/helm/helm/releases
+    return_content: yes
+  register: github_call
+
+- name: Set Helm version to latest released version
+  set_fact:
+    helm_version: "{{ github_call.json | json_query('[? prerelease==`false` && draft==`false`].tag_name') | sort | reverse | first }}"
+  when: helm_version == "latest"
+
 - name: Download helm.
   unarchive:
     src: https://get.helm.sh/helm-{{ helm_version }}-{{ helm_platform }}-{{ helm_arch }}.tar.gz
