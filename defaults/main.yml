@@ -4,4 +4,6 @@ helm_version: 'v3.2.1'
 helm_platform: linux
 helm_arch: amd64
 
+helm_repo_path: "https://get.helm.sh"
+
 helm_bin_path: /usr/local/bin/helm
