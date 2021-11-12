@@ -18,6 +18,10 @@ Available variables are listed below, along with default values (see `defaults/m
 
 Controls for the version of Helm to be installed. See [available Helm releases](https://github.com/helm/helm/releases/). You can upgrade or downgrade versions by changing the `helm_version`.
 
+    helm_repo_path: "https://get.helm.sh"
+
+The path to the main Helm repo. Unlessy you need to override this for special reasons (e.g. running on servers without public Internet access), you should leave it as the default.
+
     helm_bin_path: /usr/local/bin/helm
 
 The location where the Helm binary will be installed.
