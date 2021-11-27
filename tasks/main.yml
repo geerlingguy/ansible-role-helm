@@ -1,28 +1,28 @@
 ---
 - name: Check if Helm binary exists.
-  ansible.builtin.stat:
+  stat:
     path: "{{ helm_bin_path }}"
   register: helm_check
 
 - name: Check Helm version.
-  ansible.builtin.command: "{{ helm_bin_path }} version"
+  command: "{{ helm_bin_path }} version"
   failed_when: false
   changed_when: false
   register: helm_existing_version
 
 - name: Get current Helm releases
-  ansible.builtin.uri:
+  uri:
     url: https://api.github.com/repos/helm/helm/releases
     return_content: yes
   register: github_call
 
 - name: Set Helm version to latest released version
-  ansible.builtin.set_fact:
-    helm_version: "{{ github_call.json | community.general.json_query('[? prerelease==`false` && draft==`false`].tag_name') | sort | reverse | first }}"
+  set_fact:
+    helm_version: "{{ github_call.json | json_query('[? prerelease==`false` && draft==`false`].tag_name') | sort | reverse | first }}"
   when: helm_version == "latest"
 
 - name: Download helm.
-  ansible.builtin.unarchive:
+  unarchive:
     src: "{{ helm_repo_path }}/helm-{{ helm_version }}-{{ helm_platform }}-{{ helm_arch }}.tar.gz"
     dest: /tmp
     remote_src: true
@@ -33,7 +33,7 @@
     or helm_version not in helm_existing_version.stdout
 
 - name: Copy helm binary into place.
-  ansible.builtin.copy:
+  copy:
     src: "/tmp/{{ helm_platform }}-{{ helm_arch }}/helm"
     dest: "{{ helm_bin_path }}"
     mode: 0755
