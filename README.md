@@ -6,7 +6,8 @@ This role installs the [Helm](https://helm.sh) binary on any supported host.
 
 ## Requirements
 
-N/A
+* Ansible 2.10+
+* The ```community.general``` collection
 
 ## Role Variables
 

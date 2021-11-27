@@ -1,6 +1,6 @@
 ---
 # See available releases: https://github.com/helm/helm/releases/
-helm_version: 'v3.2.1'
+helm_version: 'latest'
 helm_platform: linux
 helm_arch: amd64
 
