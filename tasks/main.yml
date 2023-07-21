@@ -10,6 +10,12 @@
   changed_when: false
   register: helm_existing_version
 
+- name: Install required packages.
+  package:
+    name:
+      - tar
+      - unzip
+
 - name: Download helm.
   unarchive:
     src: "{{ helm_repo_path }}/helm-{{ helm_version }}-{{ helm_platform }}-{{ helm_arch }}.tar.gz"
