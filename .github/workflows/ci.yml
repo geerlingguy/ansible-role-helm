@@ -19,21 +19,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: 'geerlingguy.helm'
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install yamllint
+        run: pip3 install yamllint ansible-lint
 
-      - name: Lint code.
+      - name: Lint code (yamllint).
         run: |
           yamllint .
+
+      - name: Lint code (ansible-lint).
+        run: |
+          ansible-lint
 
   molecule:
     name: Molecule
@@ -41,18 +45,18 @@ jobs:
     strategy:
       matrix:
         distro:
-          - rockylinux8
-          - ubuntu2004
-          - debian10
+          - rockylinux9
+          - ubuntu2204
+          - debian12
 
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: 'geerlingguy.helm'
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 

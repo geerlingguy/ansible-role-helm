@@ -8,11 +8,11 @@
 
   tasks:
     - name: Check Helm version.
-      command: "{{ helm_bin_path }} version"
+      ansible.builtin.command: "{{ helm_bin_path }} version"
       changed_when: false
       register: helm_verify_version
 
     - name: Verify Helm's version is {{ helm_version }}.
-      assert:
+      ansible.builtin.assert:
         that:
           - helm_version in helm_verify_version.stdout

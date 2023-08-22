@@ -1,0 +1,8 @@
+---
+- name: Copy helm binary into place.
+  ansible.builtin.copy:
+    src: "/tmp/{{ helm_platform }}-{{ helm_arch }}/helm"
+    dest: "{{ helm_bin_path }}"
+    mode: 0755
+    remote_src: true
+  become: true
