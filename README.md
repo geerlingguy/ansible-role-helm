@@ -1,6 +1,6 @@
 # Ansible Role: Helm
 
-[![CI](https://github.com/geerlingguy/ansible-role-helm/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-helm/actions?query=workflow%3ACI)
+[![CI](https://github.com/geerlingguy/ansible-role-helm/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-helm/actions/workflows/ci.yml)
 
 This role installs the [Helm](https://helm.sh) binary on any supported host.
 
